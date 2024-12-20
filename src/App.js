@@ -1,15 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StatusBar } from 'react-native';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
-import { symbol } from 'prop-types';
 
-const Container = styled.View`
+const Container = styled.SafeAreaView`
     flex: 1;
     background-color: ${({theme}) => theme.background};
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 `;
 
 const Title = styled.Text`
@@ -25,8 +23,11 @@ export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <Container>
-                <Text>new Project</Text>
-                <StatusBar style="auto" />
+                <Title>new Project</Title>
+                <StatusBar 
+                    barStyle="light-content"
+                    backgroundColor={theme.background}
+                />
             </Container>
         </ThemeProvider>
     );
